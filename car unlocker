@@ -1,0 +1,23 @@
+local player = game.Players.LocalPlayer
+
+-- Function to unlock all cars
+local function unlockAllCars()
+    local cars = workspace.CivCars:GetChildren()
+
+    for _, car in ipairs(cars) do
+        if car:FindFirstChild("DriveSeat") then
+            car.DriveSeat.Disabled = false -- Unlock the seat
+        end
+    end
+
+    -- Notify instantly with the Library notify
+    Library:Notify("✅ Successfully unlocked all cars", 5)
+end
+
+-- Fix: Update character when respawning
+player.CharacterAdded:Connect(function()
+    getCharacterAndRootPart()
+end)
+
+-- Run the unlock function automatically
+unlockAllCars()
