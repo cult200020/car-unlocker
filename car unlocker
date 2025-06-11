@@ -1,5 +1,8 @@
 local player = game.Players.LocalPlayer
 
+-- Load IrisBetterNotifications
+local Notification = loadstring(game:HttpGet("https://api.irisapp.ca/Scripts/IrisBetterNotifications.lua"))()
+
 -- Function to unlock all cars
 local function unlockAllCars()
     local cars = workspace.CivCars:GetChildren()
@@ -10,8 +13,13 @@ local function unlockAllCars()
         end
     end
 
-    -- Notify instantly with the Library notify
-    Library:Notify("✅ Successfully unlocked all cars", 5)
+    -- Use the Iris notification style
+    Notification.Notify("", " ✅ Successfully unlocked all cars", "rbxassetid://127635104", {
+        Duration = 2,
+        Main = {
+            Rounding = true,
+        }
+    })
 end
 
 -- Fix: Update character when respawning
