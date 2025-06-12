@@ -14,7 +14,7 @@ local function unlockAllCars()
     end
 
     -- Use the Iris notification style
-    Notification.Notify("", " ✅ Successfully unlocked all cars", "rbxassetid://127635104", {
+    Notification.Notify("From snippet.cc", " ✅ Successfully unlocked all cars", "", {
         Duration = 2,
         Main = {
             Rounding = true,
